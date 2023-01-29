@@ -1,0 +1,223 @@
+.o_pj_dashboard{
+    overflow-y: auto;
+    height: 100%;
+}
+
+.tab-1{
+    min-width: 320px;
+    width: 320px;
+    background: #dcd1ff;
+    margin: 7.5px;
+    border-radius: 5px;
+    flex-grow:20;
+    padding: 7px;
+    color: black;
+    max-height: 150px;
+    box-shadow: rgb(0 0 0 / 40%) 1px 4px 7px;
+}
+.scroll_div{
+    overflow-y: auto;
+    height: 110px;
+}
+.person_tab1st{
+    min-width: 320px;
+    width: 320px;
+    background: #dcd1ff;
+    margin: 7.5px;
+    border-radius: 5px;
+    flex-grow:20;
+    padding: 7px;
+    color: black;
+    max-height: 150px;
+    box-shadow: rgb(0 0 0 / 40%) 1px 4px 7px;
+}
+
+.tab-2{
+    min-width: 320px;
+    width: 320px;
+    background: #dcd1ff;
+    margin: 7.5px;
+    border-radius: 5px;
+    flex-grow:20;
+    display: none;
+    padding: 10px;
+    color: #475577;
+    box-shadow: rgb(0 0 0 / 40%) 1px 4px 7px;
+}
+.person_tab2nd{
+    min-width: 320px;
+    width: 320px;
+    background: #dcd1ff;
+    margin: 7.5px;
+    border-radius: 5px;
+    flex-grow:20;
+    display: none;
+    padding: 10px;
+    color: #475577;
+    box-shadow: rgb(0 0 0 / 40%) 1px 4px 7px;
+}
+
+.team_btn{
+    border: 0;
+    background: white;
+    border-radius: 5px;
+    padding: 3px;
+}
+.team_btn:hover{
+    color:white;
+    background: #dcd1ff;
+}
+
+.team-names{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:5px;
+    font-size: 16px
+}
+
+.team-style{
+    font-size: 16px;
+    margin-bottom: 2.5px;
+    margin-top: 2.5px;
+    border-bottom: solid 2px white;
+}
+
+.invoice_amt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    background: white;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 12px;
+    color: #8f6bad;
+}
+
+.person-names{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:5px;
+    font-size: 16px
+}
+
+.product_sales{
+    display: flex;
+    justify-content: space-around;
+    min-width: 320px;
+    width: 320px;
+    background: #dcd1ff;
+    margin: 7.5px;
+    border-radius: 5px;
+    flex-grow:20;
+    padding: 7px;
+    color: black;
+    max-height: 150px;
+    box-shadow: rgb(0 0 0 / 40%) 1px 4px 7px;
+}
+
+.orders_btn{
+    border-radius: 5px;
+    margin-top: 7px;
+    border: 0;
+    background: #baa1cf;
+    padding: 3px
+}
+
+.orders_btn:hover {
+    background: white;
+    color: #8f6bad;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+
+.product_graph{
+
+    min-width: 320px;
+    width: 320px;
+    background: #dcd1ff;
+    margin: 7.5px;
+    border-radius: 5px;
+    flex-grow:20;
+    padding: 7px;
+    color: black;
+    box-shadow: rgb(0 0 0 / 40%) 1px 4px 7px;
+
+
+}
+
+
+canvas{
+    margin:0;
+    padding:0;
+}
+
+.graphs_div {
+    display:flex;
+    justify-content: space-around;
+    align-items:center;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+.sale_state{
+    width: 120px;
+    height: 120px;
+    background: #8572c1;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.invoice_state{
+    width: 120px;
+    height: 120px;
+    background: #8572c1;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.state_div{
+    min-width: 320px;
+    background: #dcd1ff;
+    margin: -8.5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    flex-grow:20;
+    padding: 5px;
+    color: black;
+    box-shadow: rgb(0 0 0 / 40%) 1px 4px 7px;
+    justify-content: space-around;
+}
+
+.invoice_state:hover{
+    background: #675f83;
+    color: #8572c1;
+    width: 125px;
+    height: 125px;
+}
+.sale_state:hover{
+    background: #675f83;
+    width: 125px;
+    height: 125px;
+}
+.h_color{
+    color: white;
+}

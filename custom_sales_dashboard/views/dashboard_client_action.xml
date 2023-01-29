@@ -1,0 +1,10 @@
+<odoo>
+   <record id="custom_sale_dashboard_action" model="ir.actions.client">
+       <field name="name">Dashboard</field>
+       <field name="tag">sales_custom_dashboard</field>
+    </record>
+
+    <menuitem name="Dashboard" id="sales_dashboard_menu"
+              action="custom_sale_dashboard_action"
+              parent="sale.sale_menu_root"/>
+</odoo>

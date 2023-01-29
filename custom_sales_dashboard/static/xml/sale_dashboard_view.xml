@@ -1,0 +1,171 @@
+  <template>
+    <t t-name="SalesCustomDashBoard">
+        <div class="container-fluid o_pj_dashboard">
+        </div>
+    </t>
+    <t t-name="SalesCustomDashBoardBody">
+        <div id="body-container" class="body-container" style="margin: 20px">
+            <h1>Sales DashBoard</h1>
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-4 tab-1" id="team-tab">
+                    <center>
+                        <h3>Sales Teams</h3>
+                    </center>
+                    <div class="scroll_div">
+                        <t t-foreach="widget.record" t-as="rec">
+                            <div class='team-names'>
+                                <a class='team-name' t-att-data-id="rec['id']"
+                                   href="#">
+                                    <t t-esc="rec['name']"/>
+                                </a>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 tab-2" id="team-tab2">
+                    <button class="team_btn" id="go_back">Go Back</button>
+                    <center>
+                        <div id="team-heading" class="team-style"> </div>
+                    </center>
+                    <div id="quotations" class="team-style"> </div>
+                    <div id="sale_ord" class="team-style"> </div>
+                    <div id="ord_inv" class="team-style"> </div>
+                    <div id="inv_amt" class="invoice_amt"> </div>
+                    <center>
+                        <button class="all_team_orders orders_btn">All Orders
+                        </button>
+                    </center>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-4 person_tab1st"
+                     id="person-tab1">
+                    <center>
+                        <h3>Sales Persons</h3>
+                    </center>
+                    <div class="scroll_div">
+                        <t t-foreach="widget.sales_person" t-as="res">
+                            <div class="person-names">
+                                <a class='person-name'
+                                   t-att-data-id="res['id']" href="#">
+                                    <t t-esc="res['name']"/>
+                                </a>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 person_tab2nd"
+                     id="person-tab2">
+                    <button class="team_btn" id="go_back2">Go Back</button>
+                    <center>
+                        <div id="person-heading" class="team-style"> </div>
+                    </center>
+                    <div id="sale_count" class="team-style"> </div>
+                    <div id="total_amt" class="team-style"> </div>
+                    <center>
+                        <button class="all_person_orders orders_btn">All
+                            Orders
+                        </button>
+                    </center>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 tab-1">
+                    <center>
+                        <h3>Top Customers</h3>
+                    </center>
+                    <div class="scroll_div">
+                        <t t-foreach="widget.customers" t-as="rec">
+                            <div class='team-names'>
+                                <a class='customer-name'
+                                   t-att-data-id="rec['id']" href="#">
+                                    <t t-esc="rec['name']"/>
+                                </a>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-lg-6 product_graph"
+                     id="product_graph">
+                    <div>
+                        <canvas id="myChart"> </canvas>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-6 product_graph"
+                     id="product_graph2">
+                    <div>
+                        <canvas id="myChart2"> </canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="row state_div ">
+                <h2 style="text-align: center;">Order Status</h2>
+                <div class="col-sm-6 col-md-6 col-lg-3 sale_state" id="draft">
+                    <h3 class="h_color">Draft Quotation</h3>
+                    <h1 class="h_color">
+                        <t t-esc="widget.sale_states[0].draft"/>
+                    </h1>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3 sale_state" id="sent">
+                    <h3 class="h_color">Quotation Sent</h3>
+                    <h1 class="h_color">
+                        <t t-esc="widget.sale_states[0].sent"/>
+                    </h1>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3 sale_state" id="sale">
+                    <h3 class="h_color">Sale Order</h3>
+                    <h1 class="h_color">
+                        <t t-esc="widget.sale_states[0].sale"/>
+                    </h1>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3 sale_state" id="done">
+                    <h3 class="h_color">Locked</h3>
+                    <h1 class="h_color">
+                        <t t-esc="widget.sale_states[0].done"/>
+                    </h1>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3 sale_state" id="cancel">
+                    <h3 class="h_color">Cancelled</h3>
+                    <h1 class="h_color">
+                        <t t-esc="widget.sale_states[0].cancel"/>
+                    </h1>
+                </div>
+
+            </div>
+
+            <div class="row state_div ">
+                <h2 style="text-align: center;">Invoice Status</h2>
+                <div class="col-sm-6 col-md-6 col-lg-3 invoice_state"
+                     id="upselling">
+                    <h3 class="h_color">Upselling Opportunity</h3>
+                    <h1 style="color: white;">
+                        <t t-esc="widget.invoice_states[0].upselling"/>
+                    </h1>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3 invoice_state"
+                     id="to invoice">
+                    <h3 class="h_color">To Invoice</h3>
+                    <h1 class="h_color">
+                        <t t-esc="widget.invoice_states[0].to_invoice"/>
+                    </h1>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3 invoice_state"
+                     id="invoiced">
+                    <h3 class="h_color">Fully Invoiced</h3>
+                    <h1 class="h_color">
+                        <t t-esc="widget.invoice_states[0].invoiced"/>
+                    </h1>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3 invoice_state" id="no">
+                    <h3 class="h_color">Nothing To Invoice</h3>
+                    <h1 class="h_color">
+                        <t t-esc="widget.invoice_states[0].no"/>
+                    </h1>
+                </div>
+
+            </div>
+
+        </div>
+    </t>
+
+
+</template>

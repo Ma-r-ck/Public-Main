@@ -1,0 +1,34 @@
+<odoo>
+    <record id="product_publish_view" model="ir.ui.view">
+        <field name="name">product.publish.view</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="sale.product_form_view_sale_order_button"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <style>
+                    .grn-clr{
+                        color: green;
+                    }
+                </style>
+                <button string="add product" class="oe_stat_button" name="add_to_merchant_center" icon="fa-cubes" type="object" attrs="{'invisible': [('show_button', '=', True)]}"/>
+                <button string="update product" class="oe_stat_button grn-clr" name="update_merchant_center_product" icon="fa-cubes" type="object" attrs="{'invisible': [('show_button', '=', False)]}"/>
+                <button string="delete product" class="oe_stat_button " name="delete_product" icon="fa-cubes" type="object" attrs="{'invisible': [('show_button', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_publish_view_tree" model="ir.ui.view">
+        <field name="name">product.publish.view.tree</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_product_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <header>
+                    <button string="abcd"/>
+                </header>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

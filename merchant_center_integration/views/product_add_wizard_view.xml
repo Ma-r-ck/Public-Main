@@ -1,0 +1,77 @@
+<odoo>
+    <record model="ir.ui.view" id="view_product_add_wizard_form_">
+        <field name="name">merchant.product.add</field>
+        <field name="model">merchant.product.add</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="item_id" invisible = "1"/>
+                            <field name="product_offer_id"/>
+                            <field name="product_id"/>
+                            <field name="description"/>
+                            <field name="show_gtin"/>
+                            <field name="gtin_no" attrs="{'invisible': [('show_gtin', '=', False)]}"/>
+                        </group>
+                        <group>
+                            <label for="price" string="Price"/>
+                            <div class="o_row">
+                                <field name="price"/>
+                                <label for="currency" string="Currency"/>
+                                <field name="currency"/>
+                            </div>
+                            <field name="product_ctgry"/>
+                            <field name="availability"/>
+                            <field name="condition"/>
+                            <field name="website_link"/>
+                            <field name="image_link"/>
+                            <field name="content_lang"/>
+                            <field name="target_cntry"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Add Product" class="oe_highlight" type="object" name="add_product"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+        <record model="ir.ui.view" id="view_product_update_wizard_form_">
+        <field name="name">merchant.product.add</field>
+        <field name="model">merchant.product.add</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="item_id" invisible = "1"/>
+                            <field name="product_id"/>
+                            <field name="description"/>
+                            <field name="show_gtin"/>
+                            <field name="gtin_no" attrs="{'invisible': [('show_gtin', '=', False)]}"/>
+                        </group>
+                        <group>
+                            <label for="price" string="Price"/>
+                            <div class="o_row">
+                                <field name="price"/>
+                                <label for="currency" string="Currency"/>
+                                <field name="currency"/>
+                            </div>
+                            <field name="product_ctgry"/>
+                            <field name="availability"/>
+                            <field name="condition"/>
+                            <field name="website_link"/>
+                            <field name="image_link"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Update Product" class="oe_highlight" type="object" name="update_product" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

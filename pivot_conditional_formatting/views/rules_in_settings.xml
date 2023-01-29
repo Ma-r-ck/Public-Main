@@ -1,0 +1,105 @@
+<odoo>
+<!--    <record id="conditional_rules_settings_view" model="ir.ui.view">-->
+<!--        <field name="name">conditional.rules.settings.view</field>-->
+<!--        <field name="model">res.config.settings</field>-->
+<!--&lt;!&ndash;        <field name="priority" eval="65"/>&ndash;&gt;-->
+<!--        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//div[@id='contacts_settings']" position="after">-->
+<!--                <div id="conditional_format">-->
+<!--                    <h2>Pivot Conditional Formatting Rules</h2>-->
+<!--                    <div class="row mt16 o_settings_container" name="conditional_format_setting_container">-->
+<!--                        <div class="col-12 col-lg-6 o_setting_box" >-->
+<!--                            <div class="o_setting_left_pane">-->
+<!--                                <field name="pivot_conditional"/>-->
+<!--                            </div>-->
+<!--                            <div class="o_setting_right_pane">-->
+<!--                                <field name="rule_ids" colspan="4" widget="one2many">-->
+<!--                                    <tree editable="bottom">-->
+<!--                                        <field name="rule"/>-->
+<!--                                        <field name="value" attrs="{'readonly':[('rule','=','is_empty')]}"/>-->
+<!--                                        <field name="second_value" attrs="{'readonly':[('rule','!=','in_between')]}"/>-->
+<!--                                        <field name="color" widget="color"/>-->
+<!--                                        <field name="model"/>-->
+<!--                                    </tree>-->
+<!--                                </field>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <record model="ir.ui.view" id="view_pivot_conditional_rule_form">
+        <field name="name">view.pivot.conditional.rule.form</field>
+        <field name="model">conditional.rules</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="rule"/>
+                        <field name="value" attrs="{'invisible':[('rule','=','is_empty')]}"/>
+                        <field name="second_value" attrs="{'invisible':[('rule','!=','in_between')]}"/>
+                        <field name="color" widget="color"/>
+                        <field name="text_color" widget="color"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_pivot_conditional_rule_tree">
+        <field name="name">view.pivot.conditional.rule.tree</field>
+        <field name="model">conditional.rules</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="rule"/>
+                <field name="value" required="True" attrs="{'invisible':[('rule','=','is_empty')]}"/>
+                <field name="second_value" attrs="{'invisible':[('rule','!=','in_between')]}"/>
+                <field name="color" widget="color"/>
+                <field name="text_color" widget="color"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="view_pivot_conditional_settings_tree">
+        <field name="name">view.pivot.conditional.settings.tree</field>
+        <field name="model">pivot.conditional.settings</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="model_id"/>
+                <field name="view_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_pivot_conditional_settings_form">
+        <field name="name">view.pivot.conditional.settings.form</field>
+        <field name="model">pivot.conditional.settings</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="model_id" required="True"/>
+                        <field name="view_id" required="True" attrs="{'invisible':[('model_id','=',False)]}"/>
+                        <field name="rules_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="pivot_conditional_action" model="ir.actions.act_window">
+        <field name="name">Pivot Conditional Action</field>
+        <field name="res_model">pivot.conditional.settings</field>
+        <field name="view_mode">tree,form</field>
+<!--        <field name="view_id" ref="view_pivot_conditional_rule_tree"/>-->
+<!--        <field name="view_id" ref="view_model_data_list"/>-->
+    </record>
+
+    <menuitem id="pivot_settings_menu" name="Pivot Setting" parent="base.menu_administration" action="pivot_conditional_action" groups="base.group_no_one"/>
+<!--    <menuitem id="subpivot_id" name="Sub Pivot" Parent="pivot_conditional_formatting.pivot_settings_menu" groups="base.group_no_one"/>-->
+
+</odoo>
